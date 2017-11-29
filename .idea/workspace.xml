@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1e0171a-21e4-46f6-9948-27c09406f056" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_aop_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_beans_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_context_support_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_core_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_expression_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_test_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_org_springframework_web_portlet_4_2_0_RELEASE.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/ag/controller/AddUser.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/ag/controller/ChangePwd.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/ag/controller/Register.class" afterPath="" />
@@ -120,10 +113,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/com/ag/model/Event.class" afterPath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/com/ag/model/Event.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/com/ag/model/User.class" afterPath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/com/ag/model/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/com/xag/xtra/trial/BSWebSocket.class" afterPath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/com/xag/xtra/trial/BSWebSocket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/eventa_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/eventa_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventa.iml" afterPath="$PROJECT_DIR$/eventa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/eventa/WEB-INF/classes/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/eventa/WEB-INF/error.jsp" afterPath="$PROJECT_DIR$/target/eventa/WEB-INF/error.jsp" />
@@ -1294,12 +1283,12 @@
       <workItem from="1511524031465" duration="3370000" />
       <workItem from="1511527559553" duration="1082000" />
       <workItem from="1511686031148" duration="7456000" />
-      <workItem from="1511935247105" duration="3714000" />
+      <workItem from="1511935247105" duration="5166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298564000" />
+    <option name="totallyTimeSpent" value="300016000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
