@@ -5,9 +5,9 @@
  */
 package com.ag.rest;
 
+import com.ag.beanI.UserBeanI;
 import com.ag.model.*;
 import com.xag.util.RestUtil;
-import com.ag.beanI.UserBeanI;
 import com.xag.util.ResponseObject;
 
 import javax.ejb.EJB;

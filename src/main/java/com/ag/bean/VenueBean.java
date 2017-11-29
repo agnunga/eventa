@@ -6,8 +6,8 @@
 package com.ag.bean;
 
 import com.ag.beanI.TicketBeanI;
-import com.ag.beanI.VenueBeanI;
 import com.ag.beanI.UserBeanI;
+import com.ag.beanI.VenueBeanI;
 import com.ag.dao.VenueDao;
 import com.ag.factory.DaoFactory;
 import com.ag.factory.DaoType;

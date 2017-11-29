@@ -64,8 +64,8 @@ public class BSWebSocket {
 
                 String beforeMessage = "</span>\n"
                         + " </div>\n"
-                        + " <img class=\"direct-chat-img\" src=\"../dist/img/user1-128x128.jpg\" alt=\""
-                        + alt + "\"> "
+                        /*+ " <img class=\"direct-chat-img\" src=\"../dist/img/user1-128x128.jpg\" alt=\""
+                        + alt + "\"> "*/
                         + " <div class=\"direct-chat-text\">\n";//message
 
                 String end = " <div class=\"my_message_time\">"

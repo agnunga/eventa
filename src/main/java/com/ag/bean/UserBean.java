@@ -5,11 +5,6 @@
  */
 package com.ag.bean;
 
-import com.ag.beanI.TicketBeanI;
-import com.ag.beanI.EventBeanI;
-import com.ag.beanI.VenueBeanI;
-import com.ag.beanI.PaymentBeanI;
-import com.ag.beanI.LocationBeanI;
 import com.ag.beanI.UserBeanI;
 import com.ag.dao.UserDao;
 import com.ag.factory.DaoFactory;
@@ -18,12 +13,17 @@ import com.ag.model.User;
 import com.xag.util.BcryptPassword;
 import static com.xag.util.BcryptPassword.checkPassword;
 import com.xag.util.NoMatchFoundException;
-import javax.ejb.EJB;
+
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -31,15 +31,19 @@ import java.util.List;
  *
  * @author agunga
  */
+@Service
 @Stateless
 public class UserBean implements UserBeanI {
 
     Logger log = LoggerFactory.getLogger(UserBean.class);
 
-    @PersistenceContext(unitName = "eventaPU")
-    public EntityManager em;
+    @PersistenceContext
+    EntityManager em;
+
+//    EntityManager em = Persistence.createEntityManagerFactory("eventaPU").createEntityManager();
 
     public UserDao getDao() {
+        log.info(" em :::::::::;" + em);
         return (UserDao) new DaoFactory(DaoType.USER).getDao(em);
     }
 

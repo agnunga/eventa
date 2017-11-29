@@ -12,6 +12,7 @@ import com.ag.dao.NotificationDao;
 import com.ag.factory.DaoFactory;
 import com.ag.factory.DaoType;
 import com.ag.model.Notification;
+import com.ag.type.PCUnitName;
 import com.google.gson.Gson;
 import com.xag.util.NoMatchFoundException;
 import org.slf4j.Logger;
@@ -37,7 +38,7 @@ public class NotificationBean implements NotificationBeanI {
 
     Logger log = LoggerFactory.getLogger(NotificationBean.class);
 
-    @PersistenceContext(unitName = "eventaPU")
+    @PersistenceContext(unitName = PCUnitName.EVENTAPU)
     EntityManager em;
 
     @EJB
@@ -92,10 +93,10 @@ public class NotificationBean implements NotificationBeanI {
     }
 
     @Override
-    @Schedule(minute="*/10", hour="*")
+    @Schedule(minute="*/15", hour="*")
     public void send() {
-        log.info("======Minute gone Looking for notifications======");
+        log.info("======Every Minute======");
         Gson gson = new Gson();
-        log.info("======ConsisteEvents======" + gson.toJson(eventBean.findAll()));
+        log.info("====ConsistentEvents====\n" + gson.toJson(eventBean.findAll()));
     }
 }

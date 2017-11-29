@@ -64,7 +64,7 @@ public class GenericDao<T, PK extends Serializable> implements GenericDaoI<T, PK
     @Override
     public List<T> findAll() {
         log.info("Finding all");
-        //log.info("EM: " + entityManager);
+        log.info("EM: " + entityManager);
         return this.entityManager.createQuery("SELECT t FROM " + entityClass.getSimpleName() + " t")
                 .getResultList();
     }

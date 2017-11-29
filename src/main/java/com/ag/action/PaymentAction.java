@@ -5,47 +5,48 @@ import com.ag.model.Audience;
 import com.ag.model.Payment;
 import com.ag.type.PaymentMode;
 import com.ag.type.PaymentStatus;
-import net.sourceforge.stripes.action.DefaultHandler;
-import net.sourceforge.stripes.action.HandlesEvent;
-import net.sourceforge.stripes.action.Resolution;
-import net.sourceforge.stripes.action.UrlBinding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by agufed on 10/21/17.
  */
-@UrlBinding("/payments")
+@Controller
+@RequestMapping("/payments")
 public class PaymentAction extends BaseActionBean {
 
     private Logger log = LoggerFactory.getLogger(PaymentAction.class);
 
-    @Inject
+    @EJB(mappedName = "java:global/eventa/PaymentBean")
     PaymentBeanI paymentBean;
 
-    @RolesAllowed(value= {"all"} )
-    @DefaultHandler
-    public Resolution getAllPayments(){
+    @RequestMapping("/")
+    public @ResponseBody List<Payment> getAllPayments(){
         log.info("getAllPayments...");
-        return sendResponse(getJsonString(paymentBean.findAll()), "success");
+        return paymentBean.findAll();
     }
-
-    @RolesAllowed(value= {"all"} )
-    @HandlesEvent("add")
-    public Resolution addPayments(){
-        log.info("addPayments...");
-        Payment payment = new Payment(amount, paymentCode, paymentMode, PaymentStatus.NEW, getAudience(), LocalDateTime.now());
-        try {
-            return sendResponse(getJsonString(paymentBean.add(payment)), "success");
-        }catch (Exception e){
-            log.info("Exception : " + e.getMessage());
-            return sendResponse("Failed", "failed");
-        }
-    }
+//
+//    //
+//    @RequestMapping("add")
+//    public Resolution addPayments(){
+//        log.info("addPayments...");
+//        Payment payment = new Payment(amount, paymentCode, paymentMode, PaymentStatus.NEW, getAudience(), LocalDateTime.now());
+//        try {
+//            return sendResponse(getJsonString(paymentBean.add(payment)), "success");
+//        }catch (Exception e){
+//            log.info("Exception : " + e.getMessage());
+//            return sendResponse("Failed", "failed");
+//        }
+//    }
 
 
     //variables and setters

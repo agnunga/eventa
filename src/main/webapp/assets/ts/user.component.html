@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let cust of users"
+        [class.selected]="cust === selectedUser" (click)="onSelect(cust)">
+        <h4>{{cust.id}} - {{cust.firstName}} {{cust.lastName}}</h4>
+    </li>
+</ul>
+<user-detail [user]="selectedUser"></user-detail>

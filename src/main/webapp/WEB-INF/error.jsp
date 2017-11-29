@@ -1,4 +1,4 @@
-<%@include file="../includes/header.jsp"%>
+<%@ include file="/jsp/header.jsp" %>
 <%@page isErrorPage="true" %>
 <div style="margin: 20%">
     <h2 style="text-align: left;">
@@ -8,4 +8,4 @@
         <%= exception%>
     </h3>
 </div>
-<%@include file="../includes/footer.jsp"%>
+<%@ include file="/jsp/footer.jsp" %>

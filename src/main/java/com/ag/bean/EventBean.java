@@ -14,15 +14,19 @@ import com.xag.util.NoMatchFoundException;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author agunga
  */
+@Service
 @Stateless
 public class EventBean implements EventBeanI {
 
@@ -30,6 +34,8 @@ public class EventBean implements EventBeanI {
 
     @PersistenceContext(unitName = "eventaPU")
     EntityManager em;
+
+    //EntityManager em = Persistence.createEntityManagerFactory("eventaPU").createEntityManager();
 
     public EventDao getDao() {
         return (EventDao) new DaoFactory(DaoType.EVENT).getDao(em);
