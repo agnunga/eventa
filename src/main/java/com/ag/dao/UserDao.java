@@ -24,9 +24,16 @@ public class UserDao extends GenericDao<User, Long> {
         this.em = entityManager;
     }
 
-    public Admin findByUsername(String username) {
+    public User findByUsername(String username, boolean phone) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT u FROM User u WHERE u.");
+        if(phone) sb.append(" phone ");
+        else sb.append(" username ");
+        sb.append(" =:username ");
+        String qString = sb.toString();
+        System.out.println(qString);
         try {
-            return (Admin) em.createQuery("SELECT u FROM User u WHERE u.username =:username ")
+            return (User) em.createQuery(qString)
                     .setParameter("username", username).getSingleResult();
         } catch (NoResultException e) {
             return null;

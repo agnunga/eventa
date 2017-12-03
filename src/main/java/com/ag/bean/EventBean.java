@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
  *
  * @author agunga
  */
-@Service
+//@Service
 @Stateless
 public class EventBean implements EventBeanI {
 

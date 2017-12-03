@@ -17,14 +17,16 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
+import javax.jws.soap.SOAPBinding;
+import javax.ws.rs.Consumes;
 import java.io.IOException;
 import java.util.List;
 
 /**
  * Created by agufed on 10/21/17.
  */
-@Controller
-//@RequestMapping("/users")
+@RestController
+@RequestMapping("/users")
 public class UserAction extends BaseActionBean {
 
     private Logger log = LoggerFactory.getLogger(UserAction.class);
@@ -41,12 +43,70 @@ public class UserAction extends BaseActionBean {
     /*@Autowired
     private UserBean userBean;*/
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public @ResponseBody List<User> getAllUsers(){
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> getAllUsers(){
         log.info("getActiveUser...");
         return userBean.findAll();
     }
-    @RequestMapping(value = "/form", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/find{id}", method = RequestMethod.GET)
+    public User findById(@RequestParam("id") long id) {
+        log.info("findById ...");
+        return userBean.findById(id);
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public User addUser(@RequestBody User user) {
+        log.info("addUser The user :::: " + user.getFirstName() + " " + user.getLastName());
+        try{
+            return userBean.add(user);
+        }catch (Exception e){
+            log.info("Error adding user ...");
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/update{id}", method = RequestMethod.PUT)
+    public User updateUser(@RequestParam("id") long id, @RequestBody User user) {
+        log.info("updateUser The user :::: " + user.getFirstName() + " " + user.getLastName());
+        user.setId(id);
+        try{
+            return userBean.update(user);
+        }catch (Exception e){
+            log.info("Error updating user ...");
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/delete{id}", method = RequestMethod.DELETE)
+    public String deleteUser(@RequestParam("id") long id) {
+        log.info("deleteUser The user id = :::: " + id);
+        try{
+            return userBean.delete(id)+" user(s) deleted";
+        }catch (Exception e){
+            log.info("Error deleting user ...");
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/login{phone}{password}", method = RequestMethod.GET)
+    public User processLogin(@RequestParam("phone") String phone, @RequestParam("password") String password){
+        log.info("processLogin .... phone " + phone + " password " + password);
+        try{
+            return userBean.authenticate(phone, password, true);
+        }catch(Exception e){
+            log.info("Exception : " + e.getMessage());
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/change_password{phone}{password}")
+    public String changePassword(@RequestParam("phone") String phone, @RequestParam("password") String password, @RequestParam("newPassword") String newPassword){
+        log.info("changePassword...");
+        return "Changed : " + userBean.changePassword(phone, password, newPassword, true);
+    }
+
+/*    @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String userForm(Model model) {
         log.info("userForm form...");
         model.addAttribute("user", new User());
@@ -58,7 +118,7 @@ public class UserAction extends BaseActionBean {
         log.info("userSubmit result...");
         model.addAttribute("name", "OLoo");
         log.info("The user :::: "+ user+"  "+user.getFirstName() + " " + user.getLastName());
-//        userBean.add(user);
+        userBean.add(user);
         return "result";
     }
 
@@ -86,6 +146,7 @@ public class UserAction extends BaseActionBean {
     @RequestMapping(value = "/post", method = RequestMethod.POST, produces="application/json", consumes="application/json")
     @ResponseBody
     public String post(@RequestBody String json) {
+        log.info("json : " + json);
         User pj = new User();
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -96,61 +157,7 @@ public class UserAction extends BaseActionBean {
             log.info("failed");
         }
         return "failed";
-    }
-
-//
-//    //
-//    @RequestMapping("login")
-//    public Resolution login(){
-//        log.info("login");
-//        return new ForwardResolution("/pages/login.jsp");
-//    }
-//
-//    //
-//    @RequestMapping("register")
-//    public Resolution register(){
-//        log.info("register");
-//        return new ForwardResolution("/pages/register.jsp");
-//    }
-//
-//    //
-//    @RequestMapping("add")
-//    public Resolution processRegister(){
-//        log.info("processRegister... ");
-//        User user =  new User(email, phone, firstName, lastName, password, gender, LocalDateTime.now());
-//        try {
-//            return sendResponse(getJsonString(userBean.add(user)), "success");
-//        }catch (Exception e){
-//            log.info("Exception : " + e.getMessage());
-////            return sendResponse(getJsonString(user), "failed");
-//            return sendResponse("{\"message\" : \"Registration Failed. Someone with the same phone or email already exists\"}", "failed");
-//        }
-//    }
-//
-//    //
-//    @RequestMapping("process_login")
-//    public Resolution processLogin(){
-//        log.info("processLogin .... phone " + phone+" password " + password);
-//        try{
-//            User user = userBean.authenticate(phone, password);
-//            return sendResponse(getJsonString(user), "success");
-//        }catch(Exception e) {
-//            log.info("Exception : " + e.getMessage());
-//            return sendResponse(getJsonString(null), "failed");
-//        }
-//    }
-//
-//    @RequestMapping("change_password")
-//    public Resolution changePassword(){
-//        log.info("changePassword...");
-//        return new ForwardResolution("/pages/changePassword.jsp");
-//    }
-//
-//    @RequestMapping("process_change_password")
-//    public Resolution processChangePassword(){
-//        log.info("processChangePassword...");
-//        return new ForwardResolution("/pages/changePassword.jsp");
-//    }
+    }*/
 
     //variables and setters
     private String email;

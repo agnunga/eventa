@@ -40,7 +40,9 @@ public class Payment implements Serializable {
     private String receiptNo;
     @Column(unique = true)
     private String paymentCode;
+    @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
+    @Enumerated(EnumType.STRING)
     private PaymentStatus status;
     @ManyToOne
     private Audience paidBy;

@@ -7,6 +7,7 @@ package com.ag.model;
 
 import com.ag.type.Gender;
 import com.ag.type.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -47,6 +48,7 @@ public class User implements Serializable {
     private String password;
 
     @Column(name = "gender", nullable = true)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @OneToMany
@@ -94,6 +96,7 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

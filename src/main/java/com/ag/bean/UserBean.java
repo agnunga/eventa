@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author agunga
  */
-@Service
+//@Service
 @Stateless
 public class UserBean implements UserBeanI {
 
@@ -98,9 +98,9 @@ public class UserBean implements UserBeanI {
     }
 
     @Override
-    public User authenticate(String username, String password) {
+    public User authenticate(String username, String password, boolean phone) {
 
-        User u = getDao().findByUsername(username);
+        User u = getDao().findByUsername(username, phone);
         if (u != null) {
             if (checkPassword(password, u.getPassword())) {
                 log.info("Login success!");
@@ -112,9 +112,8 @@ public class UserBean implements UserBeanI {
     }
 
     @Override
-    public boolean changePassword(String username, String password, String newPassword
-    ) {
-        User u = authenticate(username, password);
+    public boolean changePassword(String username, String password, String newPassword, boolean phone) {
+        User u = authenticate(username, password, phone);
         if (u == null) {
             return false;
         }

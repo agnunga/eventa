@@ -24,6 +24,7 @@ public class Admin extends User {
     private long id;*/
     @Column(unique = true)
     private String username;
+    @Enumerated(EnumType.STRING)
     private UserRole role;
     private LocalDateTime dateAdded;
 

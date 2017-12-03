@@ -57,7 +57,7 @@ public interface UserBeanI {
      * @param password
      * @return
      */
-    User authenticate(String username, String password);
+    User authenticate(String username, String password, boolean phone);
 
     /**
      *
@@ -66,7 +66,7 @@ public interface UserBeanI {
      * @param newPassword
      * @return
      */
-    boolean changePassword(String username, String password, String newPassword);
+    boolean changePassword(String username, String password, String newPassword, boolean phone);
 
     /**
      *

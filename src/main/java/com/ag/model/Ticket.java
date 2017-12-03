@@ -40,12 +40,14 @@ public class Ticket implements Serializable {
     private long id;
     @ManyToOne
     private Event event;
+    @Enumerated(EnumType.STRING)
     private TicketType ticketType;
     private double price;
     @Column(unique = true)
     private String ticketCode;
     /*@OneToMany
     private List<Payment> payments;*/
+    @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
     private Audience audience;
     private LocalDateTime dateBooked;

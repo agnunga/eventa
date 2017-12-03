@@ -94,7 +94,7 @@ public class UserREST {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response authenticate(@PathParam("phone") String phone, @PathParam("password") String password) {
-        User user = beanI.authenticate(phone, password);
+        User user = beanI.authenticate(phone, password, true);
         responseObject = (user != null) ? RestUtil.setResponseObject(true, user) : RestUtil.setResponseObject(false, null);
         return Response.status(Response.Status.OK).entity(responseObject).build();
 
@@ -105,7 +105,7 @@ public class UserREST {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response changePassword(@PathParam("username") String username, @PathParam("password") String password, @PathParam("newPassword") String newPassword) {
-        responseObject = beanI.changePassword(username, password, newPassword) ? RestUtil.setResponseObject(true, true) : RestUtil.setResponseObject(false, false);
+        responseObject = beanI.changePassword(username, password, newPassword, true) ? RestUtil.setResponseObject(true, true) : RestUtil.setResponseObject(false, false);
         return Response.status(Response.Status.OK).entity(responseObject).build();
 
     }

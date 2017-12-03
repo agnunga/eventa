@@ -43,8 +43,10 @@ public class Event implements Serializable {
     @Column(unique = true)
     private String eventCode;
     private String name;
+    @Enumerated(EnumType.STRING)
     private EventStatus status;
     private String description;
+    @Enumerated(EnumType.STRING)
     private EventCategory category;
     private long maxAttendance;
     @ManyToOne

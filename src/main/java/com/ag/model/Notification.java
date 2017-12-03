@@ -34,6 +34,7 @@ public class Notification implements Serializable {
     @Id
     @GeneratedValue
     private long id;
+    @Enumerated(EnumType.STRING)
     private NotificationMode mode;
     private String message;
     @ManyToOne

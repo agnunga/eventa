@@ -11,13 +11,7 @@ import com.ag.type.VenueStatus;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -46,6 +40,7 @@ public class Venue implements Serializable {
     private long capacity;
     @ManyToOne
     private Location location;
+    @Enumerated(EnumType.STRING)
     private VenueStatus status;
     private LocalDateTime dateAdded;
 
