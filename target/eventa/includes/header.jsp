@@ -6,7 +6,7 @@
     <title>eventa</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fastselect/dist/fastselect.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fastselect/dist/build.min.css">
-    <%--<link rel="stylesheet" href="https://rawgit.com/dbrekalo/attire/master/dist/css/build.min.css">--%>
+    <%--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dbrekalo/attire/dist/css/build.min.css">--%>
     <link rel='stylesheet prefetch'  href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch'  href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
     <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
@@ -17,7 +17,7 @@
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="${pageContext.request.contextPath}/assets/fastselect/dist/build.min.js"></script>
-    <%--<script src="https://rawgit.com/dbrekalo/attire/master/dist/js/build.min.js"></script>--%>
+    <%--<script src="https://cdn.jsdelivr.net/gh/dbrekalo/attire/dist/js/build.min.js"></script>--%>
     <script src="${pageContext.request.contextPath}/assets/fastselect/dist/fastselect.standalone.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript">
